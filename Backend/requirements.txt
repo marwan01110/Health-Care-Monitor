@@ -1,0 +1,9 @@
+Django>=4.2
+djangorestframework
+djangorestframework-simplejwt
+python-dotenv
+numpy
+pandas
+scikit-learn
+joblib
+django-cors-headers

@@ -1,0 +1,26 @@
+# Vite
+dist/
+.vite/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+*.tgz
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build
+*.min.js
+*.min.css

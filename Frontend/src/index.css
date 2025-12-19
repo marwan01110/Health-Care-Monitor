@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border;
+}
+
+body {
+  @apply font-sans text-gray-900;
+}
+
+/* Medical UI Components */
+.btn-primary {
+  @apply bg-medical-600 hover:bg-medical-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors;
+}
+
+.btn-danger {
+  @apply bg-danger-600 hover:bg-danger-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+}
+
+.btn-success {
+  @apply bg-success-600 hover:bg-success-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+}
+
+.btn-sm {
+  @apply py-1 px-2 text-sm;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+}
+
+.card-header {
+  @apply border-b border-gray-200 pb-4 mb-4;
+}
+
+.input-field {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-500 focus:border-transparent transition;
+}
+
+.label-field {
+  @apply block text-sm font-semibold text-gray-700 mb-2;
+}
+
+.badge-low {
+  @apply inline-block px-3 py-1 bg-success-100 text-success-800 rounded-full text-sm font-semibold;
+}
+
+.badge-medium {
+  @apply inline-block px-3 py-1 bg-warning-100 text-warning-800 rounded-full text-sm font-semibold;
+}
+
+.badge-high {
+  @apply inline-block px-3 py-1 bg-danger-100 text-danger-800 rounded-full text-sm font-semibold;
+}
+
+.vital-card {
+  @apply bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 text-center;
+}
+
+.vital-value {
+  @apply text-3xl font-bold text-medical-600 my-2;
+}
+
+.vital-label {
+  @apply text-xs uppercase tracking-wider text-gray-600;
+}
+
+.vital-unit {
+  @apply text-sm text-gray-500;
+}
