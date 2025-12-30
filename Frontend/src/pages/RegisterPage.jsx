@@ -43,7 +43,27 @@ export function RegisterPage() {
 
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.detail || 'Registration failed');
+      // Handle different types of validation errors
+      let errorMessage = 'Registration failed';
+      
+      if (err.response?.data) {
+        const data = err.response.data;
+        
+        // Check for field-specific errors
+        if (data.password) {
+          errorMessage = Array.isArray(data.password) ? data.password[0] : data.password;
+        } else if (data.username) {
+          errorMessage = Array.isArray(data.username) ? data.username[0] : data.username;
+        } else if (data.email) {
+          errorMessage = Array.isArray(data.email) ? data.email[0] : data.email;
+        } else if (data.non_field_errors) {
+          errorMessage = Array.isArray(data.non_field_errors) ? data.non_field_errors[0] : data.non_field_errors;
+        } else if (data.detail) {
+          errorMessage = data.detail;
+        }
+      }
+      
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
