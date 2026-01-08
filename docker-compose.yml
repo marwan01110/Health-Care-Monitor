@@ -8,12 +8,14 @@ services:
     volumes:
       - ./Backend:/app
       - backend_static:/app/static
-      - ./Backend/db.sqlite3:/app/db.sqlite3
+    env_file:
+      - ./Backend/.env.docker
     environment:
       - DEBUG=False
-      - SECRET_KEY=your-secret-key-here
-      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DB_HOST=db
     command: sh -c "python manage.py migrate && gunicorn backend.wsgi:application --bind 0.0.0.0:8000"
+    depends_on:
+      - db
     networks:
       - app-network
 
@@ -24,7 +26,22 @@ services:
     networks:
       - app-network
 
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=health_monitor
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=458222
+      - MYSQL_ROOT_PASSWORD=458222
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
 volumes:
+  mysql_data:
   backend_static:
 
 networks:
